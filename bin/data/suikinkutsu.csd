@@ -165,7 +165,6 @@ instr 30
 	aRy = (aPy * cos(kroll)) - (aPz * sin(kroll))
 	aRz = (aPy * sin(kroll)) + (aPz * cos(kroll))
 	
-	if (p6 = 0) then
 	aFLD, aFLU, aBLD, aBLU, aBRD, aBRU, aFRD, aFRU bformdec1 5, gaw, aRx, aRy, aRz
 	aleft1, aright1  pconvolve  aFLD, SFLD
 	aleft2, aright2  pconvolve  aFLU, SFLU
@@ -178,9 +177,6 @@ instr 30
 	
 	aleft = aleft1 + aleft2 + aleft3 + aleft4 + aleft5 + aleft6 + aleft7 + aleft8
 	aright = aright1 + aright2 + aright3 + aright4 + aright5 + aright6 + aright7 + aright8
-	else
-	aleft, aright harpexcsnd gaw, aRx*-1, aRy*-1, aRz, p5
-	endif
 	 
 
 	 aleftR, arightR, idel hrtfreverb gaRev, 2, 2, "hrtf48000left.dat", "hrtf48000right.dat", 48000
